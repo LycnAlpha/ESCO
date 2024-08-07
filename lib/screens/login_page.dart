@@ -1,4 +1,5 @@
 import 'package:esco/screens/forgot_password_page.dart';
+import 'package:esco/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -94,19 +95,27 @@ class _LoginPageState extends State<LoginPage> {
                 vertical: 20.0,
                 horizontal: 30.0,
               ),
-              child: Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.06,
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: const Color(0xFF648DDB)),
-                child: const Text(
-                  'Continue',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: const Color(0xFF648DDB)),
+                  child: const Text(
+                    'Continue',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0),
+                  ),
                 ),
               ),
             ),
