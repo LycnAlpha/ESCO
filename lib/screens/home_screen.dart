@@ -1,8 +1,8 @@
 import 'package:esco/models/event.dart';
 import 'package:esco/screens/set_schedule_screen.dart';
 import 'package:esco/screens/utils.dart';
+import 'package:esco/screens/seetings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -55,16 +55,25 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingScreen()));
+              },
               child: Container(
                 height: 50,
                 width: 50,
